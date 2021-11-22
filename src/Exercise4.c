@@ -24,7 +24,7 @@ void Ex4(char *str){
 		}
     str[count] = '\0';
 	
-   printf("%s",str);
+   printf(" %s",str);
 }
 
 int main(int argc, char *argv[]) {
