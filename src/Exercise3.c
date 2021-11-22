@@ -15,36 +15,43 @@ Ex:
 
 void Ex3(char *str){
 	//Your codes here
-	char words[100][100],small[100],large[100];
-   
-	int i=0,j=0,k,len;
-	for(k=0;str[k]!='\0';k++)
-	{
-		if(str[k]!=' '&& str[k]!='\0')
-		{
-           words[i][j++]=str[k];
-		}
-		else{
-			words[i][j]='\0';
-			i++;j=0;
-		}
-	}
-	len=i+1;
-	strcpy(small,words[0]);
-	strcpy(large,words[0]);
-	for(k=0;k<len;k++)
-	{
-		if(strlen(small)>strlen(words[k]))
-		{
-			strcpy(small,words[k]);
-		}
-		if(strlen(large)<strlen(words[k]))
-		{
-			strcpy(large,words[k]);
-		}
-	}
-	printf("Shotest word: %s",small);
-	printf("\nLongest word: %s",large);
+int i=0,j=0,k=0,a,minIndex=0,maxIndex=0,max=0,min=0;
+    char substr[100][100]={0},c;
+    while(str[k]!='\0')//for splitting sentence
+    {
+        j=0;
+        while(str[k]!=' '&&str[k]!='\0')
+        {
+            substr[i][j]=str[k];
+            k++;
+            j++;
+        }
+        substr[i][j]='\0';
+        i++;
+        if(str[k]!='\0')
+        {
+            k++;
+        }
+    }
+    int len=i;
+    max=strlen(substr[0]);
+    min=strlen(substr[0]);
+    for(i=0;i<len;i++)
+    {
+       a=strlen(substr[i]);
+       if(a>max)
+        {
+            max=a;
+            maxIndex=i;
+        }
+        if(a<min)
+        {
+            min=a;
+            minIndex=i;
+        }
+    }
+	printf("Shotest word: %s",substr[minIndex]);
+	printf("\nLongest word: %s",substr[maxIndex]);
 
 
 }
