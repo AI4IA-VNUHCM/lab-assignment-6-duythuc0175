@@ -17,6 +17,44 @@ Ex:
 
 void Ex5(char *str){
 	//Your codes here
+	int size=strlen(str);
+	char buf[size];
+	int i=0;
+   while(*str)
+    {
+        if(*str == '(' || *str == '[' || *str == '{')
+        {
+            buf[i] = *str;
+            i++;
+        }
+        if(*str == ')')
+        {
+            if(buf[i - 1] == '(')
+                i--;
+            else
+               i= 0;
+        }
+        if(*str == ']')
+        {
+            if(buf[i - 1] == '[')
+                i--;
+            else
+                i= 0;
+        }
+        if(*str == '}')
+        {
+            if(buf[i - 1] == '{')
+                i--;
+            else
+                i= 0;
+        }
+        str++;
+    }
+    if(i == 0)
+
+        printf("Valid");
+    else
+       printf("Invalid");
 	
 }
 
