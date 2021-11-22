@@ -17,46 +17,24 @@ Ex:
 
 void Ex5(char *str){
 	//Your codes here
-	int size=strlen(str);
-	char buf[size];
-	int i=0;
-   while(*str)
-    {
-        if(*str == '(' || *str == '[' || *str == '{')
-        {
-            buf[i] = *str;
-            i++;
-        }
-        if(*str == ')')
-        {
-            if(buf[i - 1] == '(')
-                i--;
-            else
-               i= 0;
-        }
-        if(*str == ']')
-        {
-            if(buf[i - 1] == '[')
-                i--;
-            else
-                i= 0;
-        }
-        if(*str == '}')
-        {
-            if(buf[i - 1] == '{')
-                i--;
-            else
-                i= 0;
-        }
-        str++;
-    }
-    if(i == 0)
+		int len = strlen(str);
 
-        printf(" Valid!");
-    else
-       printf(" Invalid!");
-	
+	for (int i = len / 2 - 1, j = len / 2; i >= 0, j < len; i--, j++)
+	{
+		if ((str[i] == '{' && str[j] == '}') || (str[i] == '[' && str[j] == ']') || (str[i] == '(' && str[j] == ')'))
+		{
+			continue;
+		}
+		else
+		{
+			printf("Invalid!");
+			return;
+		}
+	}
+	printf("Valid!");
 }
+	
+
 
 int main(int argc, char *argv[]) {
 	//testing variable, applying it to your algorithm for auto-evaluating
