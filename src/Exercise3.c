@@ -50,8 +50,8 @@ int i=0,j=0,k=0,a,minIndex=0,maxIndex=0,max=0,min=0;
             minIndex=i;
         }
     }
-	printf("Shotest word: %s",substr[minIndex]);
-	printf("\nLongest word: %s",substr[maxIndex]);
+	printf(" Shotest word: %s",substr[minIndex]);
+	printf(" Longest word: %s",substr[maxIndex]);
 
 
 }
