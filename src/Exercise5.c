@@ -52,9 +52,9 @@ void Ex5(char *str){
     }
     if(i == 0)
 
-        printf("Valid");
+        printf(" Valid!");
     else
-       printf("Invalid");
+       printf(" Invalid!");
 	
 }
 
